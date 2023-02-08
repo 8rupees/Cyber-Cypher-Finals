@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<head>
+   <meta charset="UTF-8">
+   <title>HACKATHON</title>
+   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+
+<body>
+   <div class="prediction">
+       <h1>Area Density of the trees planted</h1>
+       <form action="{{ url_for('Predict')}}"method="post">
+           <label for="terrain">Terrain</label>
+           <select id="terrain"  name="terrain" required = "required">
+               <option value="1"> Mountains </option>
+               <option value="2"> Hills </option>
+               <option value="3"> Plateu </option>
+               <option value="4"> Plains </option>
+           </select>
+           <br>
+           <br>
+           <label for="rain">RAIN(mm)</label>
+           <input type="text" id="rain" name="rain" required="required">
+           <br>
+           <br>
+        <label for="soil">Soil Type</label>
+        <select id="soil" name="soil" required="required ">
+            <option value="1"> Sand </option>
+            <option value="2"> Clay</option>
+            <option value="3"> Slit </option>
+            <option value="4"> Peat </option>
+            <option value="5"> Chalk and Loam</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <br>
+
+       </form>
+   <br>
+   <br>
+   <b>{{ prediction_text }}</b>
+   </div>
+</body>
+</html>
